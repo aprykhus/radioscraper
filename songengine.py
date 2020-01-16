@@ -39,8 +39,8 @@ def log_error(e):
 
 def get_song(url):
     """
-    Downloads the page where the list of mathematicians is found
-    and returns a list of strings, one per mathematician
+    Gets the artist and title of the song that's currently
+    playing.
     """
 
     response = simple_get(url)
