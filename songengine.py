@@ -37,12 +37,12 @@ def log_error(e):
     """
     print(e)
 
-def get_songs():
+def get_songs(url):
     """
     Downloads the page where the list of mathematicians is found
     and returns a list of strings, one per mathematician
     """
-    url = 'https://www.radio.com/wogl-vinyltap/listen'
+
     response = simple_get(url)
 
     if response is not None:
