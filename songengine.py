@@ -48,7 +48,8 @@ def get_song(url):
     if response is not None:
         html = BeautifulSoup(response, 'html.parser')
         currentsong = html.find_all("div", class_="details__title")[0].get_text()
-        return currentsong
+        currentartist = html.find_all("div", class_="details__artist")[0].get_text()
+        return currentartist + " - " + currentsong
 
     # Raise an exception if we failed to get any data from the url
     raise Exception('Error retrieving contents at {}'.format(url))
