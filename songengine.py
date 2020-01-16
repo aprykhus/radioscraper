@@ -48,8 +48,8 @@ def get_songs():
     if response is not None:
         html = BeautifulSoup(response, 'html.parser')
         names = set()
-        for li in html.find_all("div", class_="details__title"):
-            for name in li.text.split('\n'):
+        for div in html.find_all("div", class_="details__title"):
+            for name in div.text.split('\n'):
                 if len(name) > 0:
                     names.add(name.strip())
         return list(names)
