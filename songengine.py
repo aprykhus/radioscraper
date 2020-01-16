@@ -37,7 +37,7 @@ def log_error(e):
     """
     print(e)
 
-def get_songs(url):
+def get_song(url):
     """
     Downloads the page where the list of mathematicians is found
     and returns a list of strings, one per mathematician
@@ -47,12 +47,8 @@ def get_songs(url):
 
     if response is not None:
         html = BeautifulSoup(response, 'html.parser')
-        names = set()
-        for div in html.find_all("div", class_="details__title"):
-            for name in div.text.split('\n'):
-                if len(name) > 0:
-                    names.add(name.strip())
-        return list(names)
+        currentsong = html.find_all("div", class_="details__title")[0].get_text()
+        return currentsong
 
     # Raise an exception if we failed to get any data from the url
     raise Exception('Error retrieving contents at {}'.format(url))
