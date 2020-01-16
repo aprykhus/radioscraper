@@ -36,3 +36,23 @@ def log_error(e):
     make it do anything.
     """
     print(e)
+
+def get_songs():
+    """
+    Downloads the page where the list of mathematicians is found
+    and returns a list of strings, one per mathematician
+    """
+    url = 'https://www.radio.com/wogl-vinyltap/listen'
+    response = simple_get(url)
+
+    if response is not None:
+        html = BeautifulSoup(response, 'html.parser')
+        names = set()
+        for li in html.find_all("div", class_="details__title"):
+            for name in li.text.split('\n'):
+                if len(name) > 0:
+                    names.add(name.strip())
+        return list(names)
+
+    # Raise an exception if we failed to get any data from the url
+    raise Exception('Error retrieving contents at {}'.format(url))
