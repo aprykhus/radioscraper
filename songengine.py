@@ -39,8 +39,7 @@ def log_error(e):
 
 def get_song(url):
     """
-    Gets the artist and title of the song that's currently
-    playing.
+    Gets the artist and title of the song that's currently playing.
     """
 
     response = simple_get(url)
