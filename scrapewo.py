@@ -10,12 +10,3 @@ song = driver.find_element_by_class_name('v7-cover-list__title')
 # song = driver.find_element_by_class_name('v7-player__song-name')
 print(artist.text + " - " + song.text)
 driver.quit()
-
-#driver.find_element_by_id('search_term').send_keys('.')
-# js = "document.getElementById('page_size').options[1].text = '100';"
-# driver.execute_script(js)
-# driver.find_element_by_id('search').click()
-# links = driver.find_elements_by_css_selector('#results a')
-# countries = [link.text for link in links]
-# print(countries)
-# driver.close()
