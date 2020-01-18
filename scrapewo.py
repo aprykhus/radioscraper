@@ -8,8 +8,7 @@ chromeOptions.add_argument("--log-level=3")  # suppress console messages, restri
 
 driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
 driver.get('https://v7player.wostreaming.net/5792')
-driver
-driver.implicitly_wait(5)
+driver.implicitly_wait(3)
 artist = driver.find_element_by_class_name('v7-cover-list__details')
 song = driver.find_element_by_class_name('v7-cover-list__title')
 print(artist.text + " - " + song.text)
