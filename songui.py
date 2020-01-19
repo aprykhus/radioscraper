@@ -7,7 +7,7 @@ window.geometry("700x700")
 
 # Button
 btnGo = tk.Button(window, text = "Go")
-btnGo.place(x = 600, y = 50)
+btnGo.place(x = 360, y = 50)
 
 # Labels
 lblURL = tk.Label(window, text = "URL")
@@ -20,7 +20,7 @@ lblTimeUnit = tk.Label(window, text = "seconds")
 lblTimeUnit.place(x = 150, y = 100)
 
 lblState = tk.Label(window, bg = "green")
-lblState.place(x = 600, y = 100, width = 25)
+lblState.place(x = 360, y = 100, width = 25)
 
 # Entry
 entURL = tk.Entry(window)
