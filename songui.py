@@ -19,11 +19,16 @@ lblInterval.place(x = 50, y = 100)
 lblTimeUnit = tk.Label(window, text = "seconds")
 lblTimeUnit.place(x = 200, y = 100)
 
+lblState = tk.Label(window, bg = "green")
+lblState.place(x = 600, y = 100, width = 25)
+
 # Entry
 entURL = tk.Entry(window)
 entURL.place(x = 100, y = 50, width = 400)
 
 entInterval = tk.Entry(window)
 entInterval.place(x = 100, y = 100, width = 50)
+
+# List
 
 window.mainloop()
