@@ -1,5 +1,7 @@
-# Create main window
+import scrapewo
 import tkinter as tk
+
+# Create main window
 window = tk.Tk()
 window.minsize(400,600)
 window.geometry("700x700")
