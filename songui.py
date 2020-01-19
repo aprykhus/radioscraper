@@ -29,6 +29,8 @@ entURL.place(x = 100, y = 50, width = 400)
 entInterval = tk.Entry(window)
 entInterval.place(x = 100, y = 100, width = 50)
 
-# List
+# Listbox
+lbx = tk.Listbox(window)
+lbx.place(x = 50, y = 200, width = 500, height = 400)
 
 window.mainloop()
