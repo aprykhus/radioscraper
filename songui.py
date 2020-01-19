@@ -1,6 +1,5 @@
 # Create main window
 import tkinter as tk
-from tkinter import ttk
 window = tk.Tk()
 window.minsize(400,600)
 window.geometry("700x700")
