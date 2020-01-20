@@ -21,7 +21,7 @@ lblInterval.place(x = 50, y = 100)
 lblTimeUnit = tk.Label(window, text = "seconds")
 lblTimeUnit.place(x = 150, y = 100)
 
-lblState = tk.Label(window, bg = "green")
+lblState = tk.Label(window, bg = "red")
 lblState.place(x = 360, y = 100, width = 25)
 
 # Entry
