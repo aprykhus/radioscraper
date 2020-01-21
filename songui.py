@@ -6,6 +6,9 @@ window = tk.Tk()
 window.minsize(400,600)
 window.geometry("700x700")
 
+# Instantiate Song class
+objSong = scrapewo.Song()
+
 
 # Button
 btnGo = tk.Button(window, text = "Go")
