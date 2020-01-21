@@ -12,6 +12,7 @@ objSong = scrapewo.Song()
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
 
+# This function runs when Go button is clicked
 def songCallback():
     objSong.grabSong(entURL.get())
     lbx.insert('end', objSong.artist + " - " + objSong.title)
