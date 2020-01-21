@@ -29,7 +29,7 @@ lblURL.place(x = 50, y = 50)
 lblInterval = tk.Label(window, text = "Interval")
 lblInterval.place(x = 50, y = 100)
 
-lblTimeUnit = tk.Label(window, text = "seconds")
+lblTimeUnit = tk.Label(window, text = "minutes")
 lblTimeUnit.place(x = 150, y = 100)
 
 lblState = tk.Label(window, bg = "red")
