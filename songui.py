@@ -9,6 +9,7 @@ window.geometry("700x700")
 
 # Instantiate Song class
 objSong = scrapewo.Song()
+# Default URL
 url = 'https://v7player.wostreaming.net/5792'
 
 def songCallback():
