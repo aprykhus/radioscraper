@@ -19,6 +19,8 @@ lastTitle = ''
 
 # This function runs when Go button is clicked
 def songCallback():
+    global lastArtist
+    global lastTitle
     lblState.config(bg = 'green')
 
     currentURL = entURL.get()
@@ -26,15 +28,18 @@ def songCallback():
 
     # objSong.grabSong(currentURL)
     # lbx.insert('end', objSong.artist + " - " + objSong.title)
-
     def autoscrape():
-        global lastArtist, lastTitle
+        global lastArtist
+        global lastTitle
+        # print("Prev: " + lastArtist + " - " + lastTitle)
         threading.Timer(currentInterval, autoscrape).start()
         objSong.grabSong(currentURL)
-        if (lastArtist != objSong.artist) and (lastTitle != objSong.title):
+        if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
+            (lastArtist == objSong.artist and lastTitle != objSong.title):
             lbx.insert('end', objSong.artist + " - " + objSong.title)
         lastArtist = objSong.artist
         lastTitle = objSong.title
+
 
     autoscrape()
     # objSong.grabSong(currentURL)
