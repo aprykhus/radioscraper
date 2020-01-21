@@ -1,6 +1,7 @@
 import scrapewo
 import tkinter as tk
-import sched, time
+# import sched, time
+import threading
 
 # Create main window
 window = tk.Tk()
@@ -11,8 +12,10 @@ window.geometry("700x700")
 objSong = scrapewo.Song()
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
+lastArtist = ''
+lastTitle = ''
 
-s = sched.scheduler(time.time, time.sleep)
+# s = sched.scheduler(time.time, time.sleep)
 
 # This function runs when Go button is clicked
 def songCallback():
@@ -20,15 +23,29 @@ def songCallback():
 
     currentURL = entURL.get()
     currentInterval = int(entInterval.get())
-    objSong.grabSong(currentURL)
-    lbx.insert('end', objSong.artist + " - " + objSong.title)
-    def run_script(sc): 
-        objSong.grabSong(currentURL)
-        lbx.insert('end', objSong.artist + " - " + objSong.title)
-        s.enter(currentInterval, 1, run_script, (sc,))
 
-    s.enter(currentInterval, 1, run_script, (s,))
-    s.run()
+    # objSong.grabSong(currentURL)
+    # lbx.insert('end', objSong.artist + " - " + objSong.title)
+
+    def autoscrape():
+        global lastArtist, lastTitle
+        threading.Timer(currentInterval, autoscrape).start()
+        objSong.grabSong(currentURL)
+        if (lastArtist != objSong.artist) and (lastTitle != objSong.title):
+            lbx.insert('end', objSong.artist + " - " + objSong.title)
+        lastArtist = objSong.artist
+        lastTitle = objSong.title
+
+    autoscrape()
+    # objSong.grabSong(currentURL)
+    # lbx.insert('end', objSong.artist + " - " + objSong.title)
+    # def run_script(sc): 
+    #     objSong.grabSong(currentURL)
+    #     lbx.insert('end', objSong.artist + " - " + objSong.title)
+    #     s.enter(currentInterval, 1, run_script, (sc,))
+
+    # s.enter(currentInterval, 1, run_script, (s,))
+    # s.run()
 
 # Button
 btnGo = tk.Button(window, text = "Go", command = songCallback)
