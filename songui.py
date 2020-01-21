@@ -12,11 +12,23 @@ objSong = scrapewo.Song()
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
 
+s = sched.scheduler(time.time, time.sleep)
+
 # This function runs when Go button is clicked
 def songCallback():
-    objSong.grabSong(entURL.get())
-    lbx.insert('end', objSong.artist + " - " + objSong.title)
     lblState.config(bg = 'green')
+
+    currentURL = entURL.get()
+    currentInterval = int(entInterval.get())
+    objSong.grabSong(currentURL)
+    lbx.insert('end', objSong.artist + " - " + objSong.title)
+    def run_script(sc): 
+        objSong.grabSong(currentURL)
+        lbx.insert('end', objSong.artist + " - " + objSong.title)
+        s.enter(currentInterval, 1, run_script, (sc,))
+
+    s.enter(currentInterval, 1, run_script, (s,))
+    s.run()
 
 # Button
 btnGo = tk.Button(window, text = "Go", command = songCallback)
@@ -29,7 +41,7 @@ lblURL.place(x = 50, y = 50)
 lblInterval = tk.Label(window, text = "Interval")
 lblInterval.place(x = 50, y = 100)
 
-lblTimeUnit = tk.Label(window, text = "minutes")
+lblTimeUnit = tk.Label(window, text = "seconds")
 lblTimeUnit.place(x = 150, y = 100)
 
 lblState = tk.Label(window, bg = "red")
@@ -42,6 +54,7 @@ entURL.insert(0, url)
 
 entInterval = tk.Entry(window)
 entInterval.place(x = 100, y = 100, width = 50)
+entInterval.insert(0, 60)
 
 #Listbox
 lbx = tk.Listbox(window)
