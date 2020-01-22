@@ -23,4 +23,7 @@ class Song:
             print(artist.text + " - " + title.text)
         except NoSuchElementException:
             print("CRITICAL: Page didn't load in time. Consider increasing wait time.")
-        driver.quit()
+        try:
+            driver.quit()
+        except:
+            print("ERROR quiting webdrvier. Possible pipe error.")
