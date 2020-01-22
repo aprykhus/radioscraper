@@ -15,7 +15,7 @@ class Song:
 
         driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
         driver.get(url)
-        driver.implicitly_wait(3)
+        driver.implicitly_wait(3) # wait time for page to load
         try:
             artist = driver.find_element_by_class_name('v7-cover-list__details')
             title = driver.find_element_by_class_name('v7-cover-list__title')
