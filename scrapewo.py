@@ -23,5 +23,5 @@ class Song:
             self.title = title.text
             print(artist.text + " - " + title.text)
         except NoSuchElementException:
-            print("Exception caught: NoSuchElementException")
+            print("CRITICAL: Page didn't load in time. Consider increasing wait time.")
         driver.quit()
