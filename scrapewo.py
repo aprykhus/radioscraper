@@ -6,7 +6,6 @@ class Song:
     def grabSong(self, url):
         from selenium import webdriver
         from selenium.common.exceptions import NoSuchElementException
-        # import time
         path = r'D:\\Documents\\code\\Python\\songscraper\\Chromedriver\\chromedriver.exe'
 
         chromeOptions = webdriver.ChromeOptions()
