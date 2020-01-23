@@ -28,7 +28,7 @@ def songCallback():
         global lastArtist
         global lastTitle
         threading.Timer(currentInterval, autoscrape).start()
-        objSong.grabSong(currentURL)
+        objSong.grabSong(currentURL, entLoadWait.get())
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
             (lastArtist == objSong.artist and lastTitle != objSong.title):
             lbx.insert('end', objSong.artist + " - " + objSong.title)
@@ -49,7 +49,13 @@ lblInterval = tk.Label(window, text = "Interval")
 lblInterval.place(x = 50, y = 100)
 
 lblTimeUnit = tk.Label(window, text = "seconds")
-lblTimeUnit.place(x = 150, y = 100)
+lblTimeUnit.place(x = 125, y = 100)
+
+lblLoadWait = tk.Label(window, text = "Wait")
+lblLoadWait.place(x = 200, y = 100)
+
+lblTimeUnit2 = tk.Label(window, text = "seconds")
+lblTimeUnit2.place(x = 260, y = 100)
 
 lblState = tk.Label(window, bg = "red")
 lblState.place(x = 360, y = 100, width = 25)
@@ -60,8 +66,13 @@ entURL.place(x = 100, y = 50, width = 250)
 entURL.insert(0, url)
 
 entInterval = tk.Entry(window)
-entInterval.place(x = 100, y = 100, width = 50)
+entInterval.place(x = 100, y = 100, width = 25)
 entInterval.insert(0, 60)
+
+# Wait value is time to wait after page loads before scraping
+entLoadWait = tk.Entry(window)
+entLoadWait.place(x = 235, y = 100, width = 25)
+entLoadWait.insert(0, 4)
 
 #Listbox
 lbx = tk.Listbox(window)
