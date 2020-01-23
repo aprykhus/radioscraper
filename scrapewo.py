@@ -6,6 +6,7 @@ class Song:
     def grabSong(self, url):
         from selenium import webdriver
         from selenium.common.exceptions import NoSuchElementException
+        import sys
         path = r'D:\\Documents\\code\\Python\\songscraper\\Chromedriver\\chromedriver.exe'
 
         chromeOptions = webdriver.ChromeOptions()
@@ -26,4 +27,5 @@ class Song:
         try:
             driver.quit()
         except:
-            print("ERROR quiting webdrvier. Possible pipe error.")
+            e = sys.exc_info()[0]
+            print("ERROR: %s" % e)
