@@ -58,6 +58,12 @@ lblTimeUnit2.place(x = 260, y = 100)
 lblState = tk.Label(window, bg = "red")
 lblState.place(x = 360, y = 100, width = 25)
 
+lblArtistClass = tk.Label(window, text = "Artist")
+lblArtistClass.place(x = 50, y = 150)
+
+lblTitleClass = tk.Label(window, text = "Title")
+lblTitleClass.place(x = 50, y = 200)
+
 # Entry
 entURL = tk.Entry(window)
 entURL.place(x = 100, y = 50, width = 250)
@@ -72,8 +78,16 @@ entLoadWait = tk.Entry(window)
 entLoadWait.place(x = 235, y = 100, width = 25)
 entLoadWait.insert(0, 5)
 
+entArtistClass = tk.Entry(window)
+entArtistClass.place(x = 100, y = 150, width = 250)
+entArtistClass.insert(0, 'v7-cover-list__details')
+
+entTitleClass = tk.Entry(window)
+entTitleClass.place(x = 100, y = 200, width = 250)
+entTitleClass.insert(0, 'v7-cover-list__title')
+
 #Listbox
 lbx = tk.Listbox(window)
-lbx.place(x = 50, y = 200, width = 500, height = 400)
+lbx.place(x = 50, y = 250, width = 500, height = 400)
 
 window.mainloop()
