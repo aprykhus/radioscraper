@@ -24,8 +24,5 @@ class Song:
             print(artist.text + " - " + title.text)
         except NoSuchElementException:
             print("CRITICAL: Page didn't load in time. Consider increasing wait time.")
-        try:
-            driver.quit()
-        except:
-            e = sys.exc_info()[0]
-            print("ERROR: %s" % e)
+
+        driver.quit()
