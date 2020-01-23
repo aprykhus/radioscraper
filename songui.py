@@ -16,8 +16,6 @@ url = 'https://v7player.wostreaming.net/5792'
 lastArtist = ''
 lastTitle = ''
 
-# s = sched.scheduler(time.time, time.sleep)
-
 # This function runs when Go button is clicked
 def songCallback():
     global lastArtist
@@ -27,12 +25,9 @@ def songCallback():
     currentURL = entURL.get()
     currentInterval = int(entInterval.get())
 
-    # objSong.grabSong(currentURL)
-    # lbx.insert('end', objSong.artist + " - " + objSong.title)
     def autoscrape():
         global lastArtist
         global lastTitle
-        # print("Prev: " + lastArtist + " - " + lastTitle)
         threading.Timer(currentInterval, autoscrape).start()
         objSong.grabSong(currentURL)
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
@@ -41,17 +36,7 @@ def songCallback():
         lastArtist = objSong.artist
         lastTitle = objSong.title
 
-
     autoscrape()
-    # objSong.grabSong(currentURL)
-    # lbx.insert('end', objSong.artist + " - " + objSong.title)
-    # def run_script(sc): 
-    #     objSong.grabSong(currentURL)
-    #     lbx.insert('end', objSong.artist + " - " + objSong.title)
-    #     s.enter(currentInterval, 1, run_script, (sc,))
-
-    # s.enter(currentInterval, 1, run_script, (s,))
-    # s.run()
 
 # Button
 btnGo = tk.Button(window, text = "Go", command = songCallback)
@@ -82,9 +67,5 @@ entInterval.insert(0, 60)
 #Listbox
 lbx = tk.Listbox(window)
 lbx.place(x = 50, y = 200, width = 500, height = 400)
-# lbx.insert(1, "Kenny Wayne Shepard - Blue on Black")
-# lbx.insert(2, "The Firm - Radioactive")
-# lbx.insert(3, "Alan Parsons Project - Psychobabble")
-# lbx.insert(4, "ZZ Top - Gimme All Your Lovin")
 
 window.mainloop()
