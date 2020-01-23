@@ -72,7 +72,7 @@ entInterval.insert(0, 60)
 # Wait value is time to wait after page loads before scraping
 entLoadWait = tk.Entry(window)
 entLoadWait.place(x = 235, y = 100, width = 25)
-entLoadWait.insert(0, 4)
+entLoadWait.insert(0, 5)
 
 #Listbox
 lbx = tk.Listbox(window)
