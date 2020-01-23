@@ -4,6 +4,10 @@ class Song:
         self.title = ""
 
     def grabSong(self, url, loadwait):
+        """This method loads webpage using Selenium Chrome webdriver, pulls 
+        artist and title from first element in array, then stores then in 
+        object variables
+        """
         from selenium import webdriver
         from selenium.common.exceptions import NoSuchElementException
         import sys
