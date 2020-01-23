@@ -17,7 +17,7 @@ url = 'https://v7player.wostreaming.net/5792'
 def songCallback():
     lastArtist = ''
     lastTitle = ''
-    lblState.config(bg = 'green')
+    lblState.config(bg = 'lime green', text = 'ON')
     btnStart.config(state = 'disable')
 
     currentURL = entURL.get()
@@ -38,7 +38,7 @@ def songCallback():
 
 # Button
 btnStart = tk.Button(window, text = "Start", command = songCallback)
-btnStart.place(x = 360, y = 50)
+btnStart.place(x = 360, y = 50, width = 50, height = 30)
 
 # Labels
 lblURL = tk.Label(window, text = "URL")
@@ -56,8 +56,8 @@ lblLoadWait.place(x = 200, y = 100)
 lblTimeUnit2 = tk.Label(window, text = "seconds")
 lblTimeUnit2.place(x = 260, y = 100)
 
-lblState = tk.Label(window, bg = "red")
-lblState.place(x = 360, y = 100, width = 25)
+lblState = tk.Label(window, bg = "red", text = "OFF")
+lblState.place(x = 360, y = 100, width = 50, height = 30)
 
 lblArtistClass = tk.Label(window, text = "Artist")
 lblArtistClass.place(x = 50, y = 150)
