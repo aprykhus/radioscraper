@@ -6,7 +6,7 @@ class Song:
     def grabSong(self, url, loadwait, artistclass, titleclass):
         """This method loads webpage using Selenium Chrome webdriver, pulls 
         artist and title from first element in array, then stores then in 
-        object variables
+        object variables. In other words, it gets the last song played.
         """
         from selenium import webdriver
         from selenium.common.exceptions import NoSuchElementException
