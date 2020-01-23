@@ -18,6 +18,7 @@ def songCallback():
     lastArtist = ''
     lastTitle = ''
     lblState.config(bg = 'green')
+    btnStart.config(state = 'disable')
 
     currentURL = entURL.get()
     currentInterval = int(entInterval.get())
