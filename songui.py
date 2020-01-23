@@ -1,6 +1,5 @@
 import scrapewo
 import tkinter as tk
-# import sched, time
 import threading
 
 # Create main window
