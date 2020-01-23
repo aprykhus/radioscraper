@@ -36,7 +36,7 @@ def songCallback():
     autoscrape()
 
 # Button
-btnGo = tk.Button(window, text = "Go", command = songCallback)
+btnGo = tk.Button(window, text = "Start", command = songCallback)
 btnGo.place(x = 360, y = 50)
 
 # Labels
