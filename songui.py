@@ -13,7 +13,7 @@ objSong = scrapewo.Song()
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
 
-# This function runs when Go button is clicked
+# This function runs when Start button is clicked
 def songCallback():
     lastArtist = ''
     lastTitle = ''
