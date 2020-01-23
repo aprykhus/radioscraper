@@ -27,6 +27,9 @@ class Song:
             self.title = title.text
             print(artist.text + " - " + title.text)
         except NoSuchElementException:
-            print("CRITICAL: Page didn't load in time. Consider increasing wait time.")
+            print("CRITICAL: HTML element with that class wasn't found. " \
+                "Either the page didn't load in time or the class attribute " \
+                "is wrong. Verify class attribute is correct or consider " \
+                "increasing wait time.")
 
         driver.quit()
