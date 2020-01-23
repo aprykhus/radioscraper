@@ -26,7 +26,7 @@ def songCallback():
         nonlocal lastArtist
         nonlocal lastTitle
         threading.Timer(currentInterval, autoscrape).start()
-        objSong.grabSong(currentURL, entLoadWait.get())
+        objSong.grabSong(currentURL, entLoadWait.get(), entArtistClass.get(), entTitleClass.get())
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
             (lastArtist == objSong.artist and lastTitle != objSong.title):
             lbx.insert('end', objSong.artist + " - " + objSong.title)

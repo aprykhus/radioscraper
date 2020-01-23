@@ -3,7 +3,7 @@ class Song:
         self.artist = ""
         self.title = ""
 
-    def grabSong(self, url, loadwait):
+    def grabSong(self, url, loadwait, artistclass, titleclass):
         """This method loads webpage using Selenium Chrome webdriver, pulls 
         artist and title from first element in array, then stores then in 
         object variables
@@ -21,8 +21,8 @@ class Song:
         driver.get(url)
         driver.implicitly_wait(loadwait) # wait time for page to load
         try:
-            artist = driver.find_element_by_class_name('v7-cover-list__details')
-            title = driver.find_element_by_class_name('v7-cover-list__title')
+            artist = driver.find_element_by_class_name(artistclass)
+            title = driver.find_element_by_class_name(titleclass)
             self.artist = artist.text
             self.title = title.text
             print(artist.text + " - " + title.text)
