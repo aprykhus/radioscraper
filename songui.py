@@ -12,21 +12,19 @@ window.title("Song Scraper")
 objSong = scrapewo.Song()
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
-lastArtist = ''
-lastTitle = ''
 
 # This function runs when Go button is clicked
 def songCallback():
-    global lastArtist
-    global lastTitle
+    lastArtist = ''
+    lastTitle = ''
     lblState.config(bg = 'green')
 
     currentURL = entURL.get()
     currentInterval = int(entInterval.get())
 
     def autoscrape():
-        global lastArtist
-        global lastTitle
+        nonlocal lastArtist
+        nonlocal lastTitle
         threading.Timer(currentInterval, autoscrape).start()
         objSong.grabSong(currentURL, entLoadWait.get())
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
