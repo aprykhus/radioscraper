@@ -27,14 +27,15 @@ def songCallback():
         nonlocal lastArtist
         nonlocal lastTitle
         tjob = threading.Timer(currentInterval, autoscrape)
+        tjob.daemon = True
         tjob.start()
+
         objSong.grabSong(currentURL, entLoadWait.get(), entArtistClass.get(), entTitleClass.get())
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
             (lastArtist == objSong.artist and lastTitle != objSong.title):
             lbx.insert('end', objSong.artist + " - " + objSong.title)
         lastArtist = objSong.artist
         lastTitle = objSong.title
-        window.protocol("WM_DELETE_WINDOW", tjob.cancel())
     autoscrape()
 
 # Button
@@ -92,4 +93,5 @@ entTitleClass.insert(0, 'v7-cover-list__title')
 lbx = tk.Listbox(window)
 lbx.place(x = 50, y = 250, width = 500, height = 400)
 
+# Message Pump
 window.mainloop()
