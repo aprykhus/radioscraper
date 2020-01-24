@@ -26,14 +26,15 @@ def songCallback():
     def autoscrape():
         nonlocal lastArtist
         nonlocal lastTitle
-        threading.Timer(currentInterval, autoscrape).start()
+        tjob = threading.Timer(currentInterval, autoscrape)
+        tjob.start()
         objSong.grabSong(currentURL, entLoadWait.get(), entArtistClass.get(), entTitleClass.get())
         if (lastArtist != objSong.artist and lastTitle != objSong.title) or \
             (lastArtist == objSong.artist and lastTitle != objSong.title):
             lbx.insert('end', objSong.artist + " - " + objSong.title)
         lastArtist = objSong.artist
         lastTitle = objSong.title
-
+        window.protocol("WM_DELETE_WINDOW", tjob.cancel())
     autoscrape()
 
 # Button
