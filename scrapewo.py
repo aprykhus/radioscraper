@@ -33,3 +33,9 @@ class Song:
                 "increasing wait time.")
 
         driver.quit()
+
+    def exportList(self, songlist):
+        """This method exports the list of songs to a text file.
+        """
+        fo = open("songlist.txt", "w")
+        fo.write(songlist.get(1))
