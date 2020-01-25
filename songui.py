@@ -4,16 +4,16 @@ import threading
 
 # Create main window
 window = tk.Tk()
+# Instantiate Song class
+objSong = scrapewo.Song()
 
-def donothing():
-   filewin = tk.Toplevel(window)
-   button = tk.Button(filewin, text="Do nothing button")
-   button.pack()
+def exportSongs():
+    objSong.exportList(lbx)
 
 # Menu
 menubar = tk.Menu(window)
 filemenu = tk.Menu(menubar, tearoff=0)
-filemenu.add_command(label="Export...", command=donothing)
+filemenu.add_command(label="Export...", command=exportSongs)
 menubar.add_cascade(label="File", menu=filemenu)
 window.config(menu=menubar)
 
@@ -21,8 +21,7 @@ window.minsize(400,600)
 window.geometry("700x700")
 window.title("Song Scraper")
 
-# Instantiate Song class
-objSong = scrapewo.Song()
+
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
 
