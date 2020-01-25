@@ -38,6 +38,9 @@ def songCallback():
         lastTitle = objSong.title
     autoscrape()
 
+# Menu
+
+
 # Button
 btnStart = tk.Button(window, text = "Start", command = songCallback)
 btnStart.place(x = 360, y = 50, width = 50, height = 30)
