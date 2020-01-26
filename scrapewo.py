@@ -38,7 +38,6 @@ class Song:
         """This method exports the list of songs to a text file.
         """
         fo = open("songlist.txt", "w")
-        # values = [songlist.get(idx) for idx in songlist.curselection()]
         values = songlist.get(0,songlist.size())
         allsongs = ''
         for song in values:
