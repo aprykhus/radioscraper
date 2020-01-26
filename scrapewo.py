@@ -9,7 +9,8 @@ class Song:
         object variables. This gets the last song played.
         """
         from selenium import webdriver
-        from selenium.common.exceptions import NoSuchElementException
+        from selenium.common.exceptions import NoSuchElementException, \
+            WebDriverException
         import sys
         path = r'Chromedriver\\chromedriver.exe'
 
@@ -17,9 +18,14 @@ class Song:
         chromeOptions.add_argument("--headless")
         chromeOptions.add_argument("--log-level=3")  # suppress console messages, restrict to fatal
 
-        driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
-        driver.get(url)
-        driver.implicitly_wait(loadwait) # wait time for page to load
+        try:
+            driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
+            driver.get(url)
+            driver.implicitly_wait(loadwait) # wait time for page to load
+        except WebDriverException as e:
+            print(e)
+            print('\nMake sure Chromedriver.exe is in Chromedriver directory')
+            sys.exit()
         try:
             artist = driver.find_element_by_class_name(artistclass)
             title = driver.find_element_by_class_name(titleclass)
