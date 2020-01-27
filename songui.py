@@ -7,6 +7,7 @@ window = tk.Tk()
 # Instantiate Song class
 objSong = scrapewo.Song()
 
+# Start button callback
 def exportSongs():
     objSong.exportList(lbx)
 
@@ -17,10 +18,10 @@ filemenu.add_command(label="Export...", command=exportSongs)
 menubar.add_cascade(label="File", menu=filemenu)
 window.config(menu=menubar)
 
+# Window properties
 window.minsize(400,600)
 window.geometry("700x700")
 window.title("Song Scraper")
-
 
 # Default URL
 url = 'https://v7player.wostreaming.net/5792'
