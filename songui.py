@@ -7,7 +7,7 @@ window = tk.Tk()
 # Instantiate Song class
 objSong = scrapewo.Song()
 
-# Start button callback
+# File/Export command callback
 def exportSongs():
     objSong.exportList(lbx)
 
