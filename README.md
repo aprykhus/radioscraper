@@ -3,9 +3,13 @@ Python GUI application that scrapes the last song played on a particular Interne
 
 # PREREQUISITES
 Windows 10
+
 Python 3.8.1
+
 Selenium module (pip install selenium)
+
 Google Chrome
+
 Chromedriver.exe - latest stable release from https://sites.google.com/a/chromium.org/chromedriver/
 
 # INSTALL
