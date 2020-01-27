@@ -14,7 +14,9 @@ Chromedriver.exe - latest stable release from https://sites.google.com/a/chromiu
 
 # INSTALL
 Create directory on local disk called songscraper
+
 Copy songui.py and scrapewo.py to songscraper directory
+
 Make folder in same directory called Chromedriver and copy Chromedriver.exe there
 
 # RUN
