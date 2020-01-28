@@ -12,7 +12,8 @@ class Song:
         from selenium.common.exceptions import NoSuchElementException, \
             WebDriverException
         import sys
-        path = r'Chromedriver\\chromedriver.exe'
+        # path = r'Chromedriver\\chromedriver.exe'
+        path = './Chromedriver/chromedriver.exe'
 
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_argument("--headless")
