@@ -57,7 +57,7 @@ class Song:
         """This method exports the list of songs to a text file.
         """
         timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-        foldername = 'export'
+        foldername = './export'
         filename = foldername + '\\' + 'songlist' + timestamp + '.txt'
         fo = open(filename, 'w')
         values = songlist.get(0,songlist.size())
