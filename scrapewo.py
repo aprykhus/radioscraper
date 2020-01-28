@@ -23,6 +23,7 @@ class Song:
         # PyInstaller --onefile support for Chromedriver path
         def resource_path(relative_path):
             try:
+                # pylint: disable=no-member
                 base_path = sys._MEIPASS
             except Exception:
                 base_path = os.path.dirname(__file__)
