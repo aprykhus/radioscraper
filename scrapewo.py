@@ -58,7 +58,7 @@ class Song:
         """
         timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
         foldername = './export'
-        filename = foldername + '\\' + 'songlist' + timestamp + '.txt'
+        filename = foldername + '/' + 'songlist' + timestamp + '.txt'
         fo = open(filename, 'w')
         values = songlist.get(0,songlist.size())
         allsongs = ''
