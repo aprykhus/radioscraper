@@ -12,6 +12,7 @@ class Song:
         from selenium.common.exceptions import NoSuchElementException, \
             WebDriverException
         import sys
+        import os
         # path = r'Chromedriver\\chromedriver.exe'
         path = './Chromedriver/chromedriver.exe'
 
@@ -19,8 +20,17 @@ class Song:
         chromeOptions.add_argument("--headless")
         chromeOptions.add_argument("--log-level=3")  # suppress console messages, restrict to fatal
 
+        # PyInstaller --onefile support for Chromedriver path
+        def resource_path(relative_path):
+            try:
+                base_path = sys._MEIPASS
+            except Exception:
+                base_path = os.path.dirname(__file__)
+            return os.path.join(base_path, relative_path)
+
         try:
-            driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
+            # driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
+            driver = webdriver.Chrome(resource_path(path), options=chromeOptions)
             driver.get(url)
             driver.implicitly_wait(loadwait) # wait time for page to load
         except WebDriverException as e:
@@ -54,3 +64,10 @@ class Song:
         for song in values:
             allsongs = allsongs + song + '\n'
         fo.write(allsongs)
+
+# def resource_path(relative_path):
+#     try: 
+#         base_path = sys._MEIPASS
+#     except Exception:
+#         base_path = os.path.abspath(".")
+#     return os.path.join(base_path, relative_path)
