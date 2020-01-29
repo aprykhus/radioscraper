@@ -54,7 +54,7 @@ class Song:
         sep = '\\'
         ext = '.txt'
         tmpfolder = resource_path(foldername)
-        print('DEBUG: tmpfolder value - ' + tmpfolder) # Debug purposes
+        # print('DEBUG: tmpfolder value - ' + tmpfolder) # Debug purposes
         if not os.path.exists(tmpfolder):
             os.makedirs(tmpfolder)
         filepath = tmpfolder + sep + filename + timestamp + ext
@@ -65,6 +65,9 @@ class Song:
         for song in values:
             allsongs = allsongs + song + '\n'
         fo.write(allsongs)
+
+        print('DEBUG: tmpfolder value - ' + filepath) # Debug purposes
+        return filepath
 
 # PyInstaller --onefile support for Chromedriver path and export
 def resource_path(relative_path):

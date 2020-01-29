@@ -9,7 +9,8 @@ objSong = scrapewo.Song()
 
 # File/Export command callback
 def exportSongs():
-    objSong.exportList(lbx)
+    filetarget = objSong.exportList(lbx)
+    lblStatus.config(text = "Export saved: " + filetarget)
 
 # Menu
 menubar = tk.Menu(window)
@@ -79,6 +80,9 @@ lblArtistClass.place(x = 50, y = 150)
 
 lblTitleClass = tk.Label(window, text = "Title")
 lblTitleClass.place(x = 50, y = 200)
+
+lblStatus = tk.Label(window)
+lblStatus.pack(side="bottom")
 
 # Entry
 entURL = tk.Entry(window)
