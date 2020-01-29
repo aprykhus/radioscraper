@@ -1,3 +1,6 @@
+import sys
+import os
+
 class Song:
     def __init__(self):
         self.artist = ""
@@ -11,23 +14,12 @@ class Song:
         from selenium import webdriver
         from selenium.common.exceptions import NoSuchElementException, \
             WebDriverException
-        import sys
-        import os
         # path = r'Chromedriver\\chromedriver.exe'
         path = './Chromedriver/chromedriver.exe'
 
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_argument("--headless")
         chromeOptions.add_argument("--log-level=3")  # suppress console messages, restrict to fatal
-
-        # PyInstaller --onefile support for Chromedriver path
-        def resource_path(relative_path):
-            try:
-                # pylint: disable=no-member
-                base_path = sys._MEIPASS
-            except Exception:
-                base_path = os.path.dirname(__file__)
-            return os.path.join(base_path, relative_path)
 
         try:
             # driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
@@ -57,21 +49,28 @@ class Song:
         """This method exports the list of songs to a text file.
         """
         timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-        foldername = './export'
+        foldername = 'export'
         filename = 'songlist'
-        sep = '/'
+        sep = '\\'
         ext = '.txt'
-        filepath = foldername + sep + filename + timestamp + ext
+        tmpfolder = resource_path(foldername)
+        print('DEBUG: tmpfolder value - ' + tmpfolder)
+        if not os.path.exists(tmpfolder):
+            os.makedirs(tmpfolder)
+        filepath = tmpfolder + sep + filename + timestamp + ext
         fo = open(filepath, 'w')
+            
         values = songlist.get(0,songlist.size())
         allsongs = ''
         for song in values:
             allsongs = allsongs + song + '\n'
         fo.write(allsongs)
 
-# def resource_path(relative_path):
-#     try: 
-#         base_path = sys._MEIPASS
-#     except Exception:
-#         base_path = os.path.abspath(".")
-#     return os.path.join(base_path, relative_path)
+# PyInstaller --onefile support for Chromedriver path
+def resource_path(relative_path):
+    try:
+        # pylint: disable=no-member
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, relative_path)
