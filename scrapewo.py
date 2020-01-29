@@ -54,7 +54,7 @@ class Song:
         sep = '\\'
         ext = '.txt'
         tmpfolder = resource_path(foldername)
-        print('DEBUG: tmpfolder value - ' + tmpfolder)
+        print('DEBUG: tmpfolder value - ' + tmpfolder) # Debug purposes
         if not os.path.exists(tmpfolder):
             os.makedirs(tmpfolder)
         filepath = tmpfolder + sep + filename + timestamp + ext
