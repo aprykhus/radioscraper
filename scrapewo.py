@@ -66,7 +66,7 @@ class Song:
             allsongs = allsongs + song + '\n'
         fo.write(allsongs)
 
-        print('DEBUG: tmpfolder value - ' + filepath) # Debug purposes
+        print('DEBUG: filepath value - ' + filepath) # Debug purposes
         return filepath
 
 # PyInstaller --onefile support for Chromedriver path and export
