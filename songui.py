@@ -18,7 +18,7 @@ def exportSongs():
 
 # Hide Status bar text
 def hideStatus():
-    lblStatus.config(text='')
+    lblExport.config(text='')
 
 # Open file in windows explorer
 def launchfile(path):
