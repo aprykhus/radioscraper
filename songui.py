@@ -1,6 +1,7 @@
 import scrapewo
 import tkinter as tk
 import threading
+import os
 
 # Create main window
 window = tk.Tk()
@@ -10,12 +11,18 @@ objSong = scrapewo.Song()
 # File/Export command callback
 def exportSongs():
     filetarget = objSong.exportList(lbx)
-    lblStatus.config(text = "Export saved: " + filetarget)
+    # lblStatus.config(text = 'File Exported: ', anchor=tk.W, width=50)
+    lblExport.config(text = filetarget, anchor=tk.W, width=650, fg='blue')
+    lblExport.bind("<Button-1>", lambda e: launchfile(filetarget))
     window.after(60000, hideStatus)
 
 # Hide Status bar text
 def hideStatus():
     lblStatus.config(text='')
+
+# Open file in windows explorer
+def launchfile(path):
+    os.startfile(path)
 
 # Menu
 menubar = tk.Menu(window)
@@ -86,8 +93,11 @@ lblArtistClass.place(x = 50, y = 150)
 lblTitleClass = tk.Label(window, text = "Title")
 lblTitleClass.place(x = 50, y = 200)
 
-lblStatus = tk.Label(window)
-lblStatus.pack(side="bottom")
+# lblStatus = tk.Label(window)
+# lblStatus.pack(side="bottom")
+
+lblExport = tk.Label(window)
+lblExport.pack(side="bottom")
 
 # Entry
 entURL = tk.Entry(window)
