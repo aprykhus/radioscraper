@@ -1,5 +1,8 @@
 import sys
 import os
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException, \
+    WebDriverException
 
 class Song:
     def __init__(self):
@@ -11,9 +14,7 @@ class Song:
         artist and title from first element in array, then stores then in 
         object variables. This gets the last song played.
         """
-        from selenium import webdriver
-        from selenium.common.exceptions import NoSuchElementException, \
-            WebDriverException
+
         # path = r'Chromedriver\\chromedriver.exe'
         path = './Chromedriver/chromedriver.exe'
 
