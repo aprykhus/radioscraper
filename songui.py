@@ -11,6 +11,11 @@ objSong = scrapewo.Song()
 def exportSongs():
     filetarget = objSong.exportList(lbx)
     lblStatus.config(text = "Export saved: " + filetarget)
+    window.after(60000, hideStatus)
+
+# Hide Status bar text
+def hideStatus():
+    lblStatus.config(text='')
 
 # Menu
 menubar = tk.Menu(window)
