@@ -11,16 +11,17 @@ objSong = scrapewo.Song()
 # File/Export command callback
 def exportSongs():
     filetarget = objSong.exportList(lbx)
-    # lblStatus.config(text = 'File Exported: ', anchor=tk.W, width=50)
-    lblExport.config(text = filetarget, anchor=tk.W, width=650, fg='blue')
+    lblStatus.config(text = 'File Exported: ')
+    lblExport.config(text = filetarget, fg='blue')
     lblExport.bind("<Button-1>", lambda e: launchfile(filetarget))
     window.after(60000, hideStatus)
 
 # Hide Status bar text
 def hideStatus():
+    lblStatus.config(text='')
     lblExport.config(text='')
 
-# Open file in windows explorer
+# Open file in text editor (e.g. Notepad)
 def launchfile(path):
     os.startfile(path)
 
@@ -68,6 +69,10 @@ def songCallback():
 btnStart = tk.Button(window, text = "Start", command = songCallback)
 btnStart.place(x = 360, y = 50, width = 50, height = 30)
 
+# Frame
+frmStatusbar = tk.Frame(window)
+frmStatusbar.pack(side = tk.BOTTOM, fill = 'x')
+
 # Labels
 lblURL = tk.Label(window, text = "URL")
 lblURL.place(x = 50, y = 50)
@@ -93,11 +98,11 @@ lblArtistClass.place(x = 50, y = 150)
 lblTitleClass = tk.Label(window, text = "Title")
 lblTitleClass.place(x = 50, y = 200)
 
-# lblStatus = tk.Label(window)
-# lblStatus.pack(side="bottom")
+lblStatus = tk.Label(frmStatusbar)
+lblStatus.pack(side="left")
 
-lblExport = tk.Label(window)
-lblExport.pack(side="bottom")
+lblExport = tk.Label(frmStatusbar)
+lblExport.pack(side="left")
 
 # Entry
 entURL = tk.Entry(window)
