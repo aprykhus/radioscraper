@@ -2,6 +2,7 @@ import scrapewo
 import tkinter as tk
 import threading
 import os
+from tkinter import font
 
 # Create main window
 window = tk.Tk()
@@ -12,8 +13,13 @@ objSong = scrapewo.Song()
 def exportSongs():
     filetarget = objSong.exportList(lbx)
     lblStatus.config(text = 'File Exported: ')
-    lblExport.config(text = filetarget, fg='blue')
+    # Font req'd to underline hyperlink
+    hlfont = font.Font(lblExport, lblExport.cget("font"))
+    hlfont.configure(underline=True)
+    # Hyperlink to exported file
+    lblExport.config(text = filetarget, fg='blue', font=hlfont)
     lblExport.bind("<Button-1>", lambda e: launchfile(filetarget))
+    # Hide status bar text after 60 seconds
     window.after(60000, hideStatus)
 
 # Hide Status bar text
