@@ -39,7 +39,7 @@ class Song:
         title = driver.find_element_by_class_name(titleclass)
         self.artist = artist.text
         self.title = title.text
-        print(artist.text + " - " + title.text)
+        # print(artist.text + " - " + title.text)
         # except NoSuchElementException:
             # print("CRITICAL: HTML element with that class wasn't found. " \
             #     "Either the page didn't load in time or the class attribute " \
