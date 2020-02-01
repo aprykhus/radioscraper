@@ -25,8 +25,7 @@ class Song:
 
         try:
             # driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
-            # driverpath = resource_path(path)
-            driverpath = path
+            driverpath = resource_path(path)
             print("DEBUG: Driver path: " + driverpath) # Debug purposes only
             driver = webdriver.Chrome(driverpath, options=chromeOptions)
             driver.get(url)
