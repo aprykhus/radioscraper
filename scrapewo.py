@@ -22,6 +22,7 @@ class Song:
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_argument("--headless")
         chromeOptions.add_argument("--log-level=3")  # suppress console messages, restrict to fatal
+        chromeOptions.add_experimental_option('excludeSwitches', ['enable-logging'])
 
         # try:
         driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
