@@ -24,7 +24,9 @@ class Song:
 
         try:
             # driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
-            driver = webdriver.Chrome(resource_path(path), options=chromeOptions)
+            driverpath = resource_path(path)
+            print("DEBUG: Driver path: " + driverpath) # Debug purposes only
+            driver = webdriver.Chrome(driverpath, options=chromeOptions)
             driver.get(url)
             driver.implicitly_wait(loadwait) # wait time for page to load
         except WebDriverException as e:
