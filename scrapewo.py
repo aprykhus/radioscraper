@@ -23,28 +23,28 @@ class Song:
         chromeOptions.add_argument("--headless")
         chromeOptions.add_argument("--log-level=3")  # suppress console messages, restrict to fatal
 
-        try:
+        # try:
             # driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
-            driverpath = resource_path(path)
-            print("DEBUG: Driver path: " + driverpath) # Debug purposes only
-            driver = webdriver.Chrome(driverpath, options=chromeOptions)
-            driver.get(url)
-            driver.implicitly_wait(loadwait) # wait time for page to load
-        except WebDriverException as e:
-            print(e)
-            print('\nMake sure Chromedriver.exe is in Chromedriver directory')
-            sys.exit()
-        try:
-            artist = driver.find_element_by_class_name(artistclass)
-            title = driver.find_element_by_class_name(titleclass)
-            self.artist = artist.text
-            self.title = title.text
-            print(artist.text + " - " + title.text)
-        except NoSuchElementException:
-            print("CRITICAL: HTML element with that class wasn't found. " \
-                "Either the page didn't load in time or the class attribute " \
-                "is wrong. Verify class attribute is correct or consider " \
-                "increasing wait time.")
+        driverpath = resource_path(path)
+        print("DEBUG: Driver path: " + driverpath) # Debug purposes only
+        driver = webdriver.Chrome(driverpath, options=chromeOptions)
+        driver.get(url)
+        driver.implicitly_wait(loadwait) # wait time for page to load
+        # except WebDriverException as e:
+            # print(e)
+            # print('\nMake sure Chromedriver.exe is in Chromedriver directory')
+            # sys.exit()
+        # try:
+        artist = driver.find_element_by_class_name(artistclass)
+        title = driver.find_element_by_class_name(titleclass)
+        self.artist = artist.text
+        self.title = title.text
+        print(artist.text + " - " + title.text)
+        # except NoSuchElementException:
+            # print("CRITICAL: HTML element with that class wasn't found. " \
+            #     "Either the page didn't load in time or the class attribute " \
+            #     "is wrong. Verify class attribute is correct or consider " \
+            #     "increasing wait time.")
 
         driver.quit()
 
