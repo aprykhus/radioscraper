@@ -25,7 +25,8 @@ class Song:
         chromeOptions.add_experimental_option('excludeSwitches', ['enable-logging'])
 
         # try:
-        driver = webdriver.Chrome(options=chromeOptions, executable_path = path)
+        args = ["hide_console", ]
+        driver = webdriver.Chrome(options=chromeOptions, executable_path = path, service_args=args)
         # driverpath = resource_path(path)
         # print("DEBUG: Driver path: " + driverpath) # Debug purposes only
         # driver = webdriver.Chrome(driverpath, options=chromeOptions)
