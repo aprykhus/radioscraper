@@ -29,7 +29,7 @@ class Song:
             # service_args uses args in above line as a test
             # driver = webdriver.Chrome(options=chromeOptions, executable_path = path, service_args=args)
             driverpath = resource_path(path)
-            print("DEBUG: Driver path: " + driverpath) # Debug purposes only
+            # print("DEBUG: Driver path: " + driverpath) # Debug purposes only
             driver = webdriver.Chrome(driverpath, options=chromeOptions, service_args=args)
             driver.get(url)
             driver.implicitly_wait(loadwait) # wait time for page to load
