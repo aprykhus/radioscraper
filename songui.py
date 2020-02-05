@@ -44,7 +44,8 @@ window.geometry("700x700")
 window.title("Song Scraper")
 
 # Default URL
-url = 'https://v7player.wostreaming.net/5792'
+# url = 'https://v7player.wostreaming.net/5792'
+url = 'http://player.listenlive.co/64001/en/songhistory'
 
 # This function runs when Start button is clicked
 def songCallback():
@@ -126,11 +127,11 @@ entLoadWait.insert(0, 5)
 
 entArtistClass = tk.Entry(window)
 entArtistClass.place(x = 100, y = 150, width = 250)
-entArtistClass.insert(0, 'v7-cover-list__details')
+entArtistClass.insert(0, 'artist')
 
 entTitleClass = tk.Entry(window)
 entTitleClass.place(x = 100, y = 200, width = 250)
-entTitleClass.insert(0, 'v7-cover-list__title')
+entTitleClass.insert(0, 'title')
 
 #Listbox
 lbx = tk.Listbox(window)
